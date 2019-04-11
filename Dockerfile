@@ -43,9 +43,6 @@ RUN set -x \
     && cd ${BASE_DIR}/webapps/cmis \
     && unzip -qq /tmp/chemistry-opencmis-server-${CMIS_SERVER_TYPE}-${OPENCMIS_VERSION}.war -d .
 
-# Configuration
-ADD tomcat-users.xml ${BASE_DIR}/conf/
-
 COPY bin/setenv.sh ${BASE_DIR}/bin
 
 #####
