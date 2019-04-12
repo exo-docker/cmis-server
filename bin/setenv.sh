@@ -106,7 +106,7 @@ if [ "${JMX_ENABLED}" = "true" ]; then
     exit 1
   }
 
-  CATALINA_OPTS="${CATALINA_OPTS} -Dcom.sun.management.jmxremote=true"
+  CATALINA_OPTS="${CATALINA_OPTS:-} -Dcom.sun.management.jmxremote=true"
   CATALINA_OPTS="${CATALINA_OPTS} -Dcom.sun.management.jmxremote.ssl=false"
   CATALINA_OPTS="${CATALINA_OPTS} -Djava.rmi.server.hostname=${JMX_RMI_SERVER_HOSTNAME}"
 
@@ -157,7 +157,7 @@ if [ "${JVM_LOG_GC_ENABLED}" = "true" ]; then
   # -XX:+PrintGCDetails    : print the details of how much memory is reclaimed in each generation
   JVM_LOG_GC_OPTS="-XX:+PrintGC -XX:+PrintGCDetails -XX:+PrintGCTimeStamps -XX:+PrintGCDateStamps"
   echo "Enabling JVM GC logs with [${JVM_LOG_GC_OPTS}] options ..."
-  CATALINA_OPTS="${CATALINA_OPTS} ${JVM_LOG_GC_OPTS} -Xloggc:${LOG_DIR}/gc.log"
+  CATALINA_OPTS="${CATALINA_OPTS:-} ${JVM_LOG_GC_OPTS} -Xloggc:${LOG_DIR}/gc.log"
   # log rotation to backup previous log file (we don't use GC Log file rotation options because they are not suitable)
   # create the directory for older GC log file
   [ ! -d ${LOG_DIR}/gc/ ] && mkdir ${LOG_DIR}/gc/
@@ -172,7 +172,7 @@ fi
 # -----------------------------------------------------------------------------
 # JVM configuration
 # -----------------------------------------------------------------------------
-export CATALINA_OPTS="${CATALINA_OPTS} -Xmx${JVM_SIZE_MAX} -Xms${JVM_SIZE_MIN}  -XX:MaxMetaspaceSize=${JVM_METASPACE_SIZE_MAX}"
+export CATALINA_OPTS="${CATALINA_OPTS:-} -Xmx${JVM_SIZE_MAX} -Xms${JVM_SIZE_MIN}  -XX:MaxMetaspaceSize=${JVM_METASPACE_SIZE_MAX}"
 
 echo "INFO Configuring cmis server..."
 cp -v /repository-template.properties ${INSTALL_DIR}/webapps/cmis/WEB-INF/classes/repository.properties

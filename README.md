@@ -1,4 +1,4 @@
-# CMIS 1.1 compliant opencmis server
+# CMIS 1.1 compliant opencmis server <!-- omit in toc -->
 
 - [CMIS 1.1 compliant opencmis server](#cmis-11-compliant-opencmis-server)
   - [Docker](#docker)
