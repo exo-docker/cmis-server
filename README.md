@@ -95,9 +95,6 @@ The following environment variables must be passed to the container to configure
 
 The following environment variables can be passed to the container to configure Tomcat settings
 
-
-
-
 | VARIABLE           | MANDATORY | DEFAULT VALUE | DESCRIPTION                                                                  |
 |--------------------|-----------|---------------|------------------------------------------------------------------------------|
 | HTTP_THREAD_MAX    | NO        | `200`         | maximum number of threads in the tomcat http connector                       |
