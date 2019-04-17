@@ -31,8 +31,8 @@ RUN set -x \
 # Install extra components
 RUN set -x \
   && cd /tmp \
-  && curl -LO https://www-eu.apache.org/dist/tomcat/tomcat-${TOMCAT_VERSION_MAJOR}/v${TOMCAT_VERSION_FULL}/bin/extras/catalina-jmx-remote.jar \
-  && curl -LO https://www-eu.apache.org/dist/tomcat/tomcat-${TOMCAT_VERSION_MAJOR}/v${TOMCAT_VERSION_FULL}/bin/extras/catalina-jmx-remote.jar.sha512 \
+  && curl -LO https://archive.apache.org/dist/tomcat/tomcat-${TOMCAT_VERSION_MAJOR}/v${TOMCAT_VERSION_FULL}/bin/extras/catalina-jmx-remote.jar \
+  && curl -LO https://archive.apache.org/dist/tomcat/tomcat-${TOMCAT_VERSION_MAJOR}/v${TOMCAT_VERSION_FULL}/bin/extras/catalina-jmx-remote.jar.sha512 \
   && sha512sum -c catalina-jmx-remote.jar.sha512 \
   && cp catalina-jmx-remote.jar ${BASE_DIR}/lib
 
